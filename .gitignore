@@ -9,3 +9,6 @@ yarn-debug.log*
 yarn-error.log*
 *.log
 .history
+.sass-cache
+application.css
+aplication.css.map
