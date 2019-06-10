@@ -11,4 +11,4 @@ yarn-error.log*
 .history
 .sass-cache
 *.css
-*.css.map
+.maquetado/application.css.map
