@@ -1,5 +1,14 @@
 @import 'thefonts';
 
 .title {
-  font-size: $text-big;
+  display: flex;
+  align-items: center;
+  height: auto;
+  margin-left: 25px;
+  width: 500px;
+  .title-1{
+    font-size: $text-big;
+    position: relative;
+    right: 30px;
+  }
 }
