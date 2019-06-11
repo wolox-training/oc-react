@@ -4,11 +4,11 @@
 .tech-card{
     align-items: center;
     background-color: $green;
-    border-radius: 5%;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     height: 300px;
-    margin: 20px 20px;
+    margin: 40px 20px;
     padding: 15px 10px 10px 10px;
     width: 200px;
     position: relative;
@@ -18,17 +18,16 @@
         height: 289px;
         content: '';
         position: absolute;
-        outline: solid 2px blue;
-        top: -6px;
-        left: -9px;
+        border: solid 1px $green;
+        border-radius: 8px;
+        top: -11px;
+        left: -11px;
+        z-index: -1;
     }
 
     .tech-logo{
         width: 100px;
         margin-bottom: 10px;
-        img{
-            width: 100%;
-        }
     }
 
     .tech-name{
