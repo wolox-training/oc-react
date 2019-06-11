@@ -1,5 +1,8 @@
 @import 'colors';
 @import 'fonts';
+@import 'sizes';
+
+.tech-name, .tech-release, .tech-info { margin: 5px; }
 
 .tech-card {
     align-items: center;
@@ -26,22 +29,19 @@
     }
 
     .tech-logo {
-        width: 100px;
+        width: $tech-logo-size;
         margin-bottom: 10px;
     }
 
     .tech-name {
         font-size: $text-medium;
-        margin: 5px;
     }
 
     .tech-release {
-        margin: 5px;
         font-weight: bold;
     }
 
     .tech-info {
-        margin: 5px;
         text-align: center;
     }
 }
