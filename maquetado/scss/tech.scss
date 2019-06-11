@@ -1,7 +1,48 @@
 @import 'colors';
+@import 'fonts';
 
 .tech-card{
-    width: 200px;
-    height: 500px;
+    align-items: center;
     background-color: $green;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    margin: 20px 20px;
+    padding: 15px 10px 10px 10px;
+    width: 200px;
+    position: relative;
+    
+    &::after{
+        width: 200px;
+        height: 289px;
+        content: '';
+        position: absolute;
+        outline: solid 2px blue;
+        top: -6px;
+        left: -9px;
+    }
+
+    .tech-logo{
+        width: 100px;
+        margin-bottom: 10px;
+        img{
+            width: 100%;
+        }
+    }
+
+    .tech-name{
+        font-size: $text-medium;
+        margin: 5px;
+    }
+
+    .tech-release{
+        margin: 5px;
+        font-weight: bold;
+    }
+
+    .tech-info{
+        margin: 5px;
+        text-align: center;
+    }
 }
