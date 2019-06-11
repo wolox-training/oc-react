@@ -1,7 +1,7 @@
 @import 'colors';
 @import 'fonts';
 
-.tech-card{
+.tech-card {
     align-items: center;
     background-color: $green;
     border-radius: 8px;
@@ -9,11 +9,11 @@
     flex-direction: column;
     height: 300px;
     margin: 40px 20px;
-    padding: 15px 10px 10px 10px;
+    padding: 15px 10px 10px;
     width: 200px;
     position: relative;
     
-    &::after{
+    &::after {
         width: 200px;
         height: 289px;
         content: '';
@@ -25,22 +25,22 @@
         z-index: -1;
     }
 
-    .tech-logo{
+    .tech-logo {
         width: 100px;
         margin-bottom: 10px;
     }
 
-    .tech-name{
+    .tech-name {
         font-size: $text-medium;
         margin: 5px;
     }
 
-    .tech-release{
+    .tech-release {
         margin: 5px;
         font-weight: bold;
     }
 
-    .tech-info{
+    .tech-info {
         margin: 5px;
         text-align: center;
     }
