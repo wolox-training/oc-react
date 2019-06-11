@@ -1,0 +1,47 @@
+@import 'colors';
+@import 'fonts';
+@import 'sizes';
+
+.tech-name, .tech-release, .tech-info { margin: 5px; }
+
+.tech-card {
+    align-items: center;
+    background-color: $green;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    margin: 40px 20px;
+    padding: 15px 10px 10px;
+    width: 200px;
+    position: relative;
+    
+    &::after {
+        width: 200px;
+        height: 289px;
+        content: '';
+        position: absolute;
+        border: solid 1px $green;
+        border-radius: 8px;
+        top: -11px;
+        left: -11px;
+        z-index: -1;
+    }
+
+    .tech-logo {
+        width: $tech-logo-size;
+        margin-bottom: 10px;
+    }
+
+    .tech-name {
+        font-size: $text-medium;
+    }
+
+    .tech-release {
+        font-weight: bold;
+    }
+
+    .tech-info {
+        text-align: center;
+    }
+}
