@@ -2,11 +2,11 @@
 @import 'fonts';
 @import 'sizes';
 
-.main-container{
+.main-container {
     padding: 50px;
 }
 
-.tc-container-fe, .tc-container-be{
+.tc-container-fe, .tc-container-be {
     display: flex;
     margin-left: 100px;
 }
@@ -27,7 +27,7 @@
     
     &::after {
         width: 200px;
-        height: 289px;
+        height: 300px;
         content: '';
         position: absolute;
         border: solid 1px $green;
