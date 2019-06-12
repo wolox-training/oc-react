@@ -1,7 +1,7 @@
 @import 'colors';
 @import 'fonts';
 @import 'sizes';
-@mixin card-size{
+@mixin card-size {
     width: 200px;
     height: 300px;
 }
@@ -10,7 +10,7 @@
     padding: 50px;
 }
 
-.tc-container-fe, .tc-container-be {
+.tc-container {
     display: flex;
     margin-left: 100px;
 }
