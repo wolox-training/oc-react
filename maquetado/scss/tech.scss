@@ -1,6 +1,10 @@
 @import 'colors';
 @import 'fonts';
 @import 'sizes';
+@mixin card-size{
+    width: 200px;
+    height: 300px;
+}
 
 .main-container {
     padding: 50px;
@@ -19,15 +23,12 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    height: 310px;
     margin: 40px 20px;
     padding: 10px;
-    width: 200px;
     position: relative;
+    @include card-size();
     
     &::after {
-        width: 200px;
-        height: 300px;
         content: '';
         position: absolute;
         border: solid 1px $green;
@@ -35,6 +36,7 @@
         top: -11px;
         left: -11px;
         z-index: -1;
+        @include card-size();
     }
 
     .tech-logo {
