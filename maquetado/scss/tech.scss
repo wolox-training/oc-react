@@ -39,7 +39,7 @@
         @include card-size();
     }
 
-    &:hover:after{
+    &:hover:after {
         content: '';
         position: absolute;
         border: solid 1px $green;
