@@ -1,6 +1,19 @@
 @import 'colors';
 @import 'fonts';
 @import 'sizes';
+@mixin card-size {
+    width: 200px;
+    height: 300px;
+}
+
+.main-container {
+    padding: 50px;
+}
+
+.tc-container {
+    display: flex;
+    margin-left: 100px;
+}
 
 .tech-name, .tech-release, .tech-info { margin: 5px; }
 
@@ -10,15 +23,12 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    height: 300px;
     margin: 40px 20px;
-    padding: 15px 10px 10px;
-    width: 200px;
+    padding: 10px;
     position: relative;
+    @include card-size();
     
     &::after {
-        width: 200px;
-        height: 289px;
         content: '';
         position: absolute;
         border: solid 1px $green;
@@ -26,10 +36,12 @@
         top: -11px;
         left: -11px;
         z-index: -1;
+        @include card-size();
     }
 
     .tech-logo {
         width: $tech-logo-size;
+        height: $tech-logo-size;
         margin-bottom: 10px;
     }
 
@@ -43,5 +55,6 @@
 
     .tech-info {
         text-align: center;
+        font-size: $text-small;
     }
 }
