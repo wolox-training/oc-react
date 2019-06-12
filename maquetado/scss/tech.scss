@@ -27,16 +27,26 @@
     padding: 10px;
     position: relative;
     @include card-size();
-    
+
     &::after {
         content: '';
         position: absolute;
         border: solid 1px $green;
         border-radius: 8px;
-        top: -11px;
-        left: -11px;
+        top: -10px;
+        left: -10px;
         z-index: -1;
         @include card-size();
+    }
+
+    &:hover:after{
+        content: '';
+        position: absolute;
+        border: solid 1px $green;
+        border-radius: 8px;
+        top: 10px;
+        left: 10px;
+        transition: 0.5s;
     }
 
     .tech-logo {
