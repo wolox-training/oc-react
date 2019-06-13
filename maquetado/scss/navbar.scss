@@ -1,0 +1,27 @@
+@import 'sizes';
+@import 'fonts';
+@import 'colors';
+
+.navbar {
+    height: $nav-height;
+    width: 100%;
+    padding-top: 20px;
+    position: fixed;
+    background-color: $white;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 5px 5px $grey;
+    margin-bottom: 50px;
+
+    .wolox-logo {
+        height: 55px;
+        width: 250px;
+        margin-left: 20px;
+    }
+
+    .nav-title {
+        font-size: $text-big;
+        margin: 10px 20px 0 0;
+    }
+}
