@@ -69,6 +69,7 @@
   .tech-card {
     margin-bottom: 10px;
     border-bottom: 2px $green solid;
+    padding-bottom: 10px;
     &:last-child {
       border-bottom: none;
     }
@@ -77,8 +78,8 @@
   .left-card {
     grid-row: 1/2;
     height: auto;
+    padding-top: 5px;
     width: 200px;
-    padding: 5px;
     border-right: none;
   }
 
