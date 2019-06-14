@@ -62,12 +62,12 @@
 
 @media (max-width: 1024px) {
   .tc-container {
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: repeat(auto-fill, 1fr);
     grid-template-columns: 1fr;
   }
 
   .tech-card {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border-bottom: 2px $green solid;
     &:last-child {
       border-bottom: none;
@@ -82,15 +82,11 @@
     border-right: none;
   }
 
-  .title{
+  .title {
     justify-content: center;
   }
 
   .nav-title {
     display: none;
-  }
-
-  .back-end-techs {
-    grid-template-rows: repeat(4, 1fr);
   }
 }
