@@ -1,23 +1,23 @@
-@import 'colors';
+@import "colors";
 
 .footer {
-    width: 100%;
-    height: 150px;
-    background-color: $blue;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
+  width: 100%;
+  height: 150px;
+  background-color: $blue;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 
-    .footer-title {
-        font-size: $text-big;
-        text-align: center;
-        padding: 15px;
-        color: $white;
-    }
+  .footer-title {
+    font-size: $text-big;
+    text-align: center;
+    padding: 15px;
+    color: $white;
+  }
 
-    .copyright {
-        align-self: flex-end;
-        color: $white;
-        margin-right: 15px;
-    }
+  .copyright {
+    align-self: flex-end;
+    color: $white;
+    margin-right: 15px;
+  }
 }
