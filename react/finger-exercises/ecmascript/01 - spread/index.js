@@ -24,3 +24,8 @@ export function copy(args) {
 
   return copyObj;
 }
+
+export function reverseMerge(args, args2) {
+  let mergeArr = [...args2, ...args];
+  return mergeArr;
+}
