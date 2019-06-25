@@ -20,7 +20,7 @@ export function copy(args) {
     return copyArr;
   }
 
-  const copyObj = Object.assign({},args);
+  const copyObj = Object.assign({}, args);
 
   return copyObj;
 }
@@ -30,8 +30,8 @@ export function reverseMerge(args, args2) {
   return mergeArr;
 }
 
-export function filterAttribs (args) {
-  const {a, b, ...rest} = args;
-  return rest; 
+export function filterAttribs(args) {
+  const { a, b, ...rest } = args;
+  return rest;
 }
 
