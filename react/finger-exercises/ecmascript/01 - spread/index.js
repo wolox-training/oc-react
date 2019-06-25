@@ -14,5 +14,13 @@ export function min(...args) {
   return Math.min(args);
 }
 
-export function copy() {
+export function copy(args) {
+  if (isArray(args)) {
+    let copyArr = args.slice();
+    return copyArr;
+  }
+
+  let copyObj = Object.assign({},args);
+
+  return copyObj;
 }
