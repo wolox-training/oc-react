@@ -43,7 +43,7 @@ describe('Spread operator', () => {
     expect(reverseMerge([1, 1, 1], [3, 2])).toEqual([3, 2, 1, 1, 1]);
     expect(reverseMerge([1, 2], [3, 4, 5])).toEqual([3, 4, 5, 1, 2]);
   });
-  xit('reverseMerge does not mutate the arguments', () => {
+  it('reverseMerge does not mutate the arguments', () => {
     const example1 = [1, 2];
     const example2 = [3, 4];
 
@@ -52,7 +52,7 @@ describe('Spread operator', () => {
     expect(example1).toEqual([1, 2]);
     expect(example2).toEqual([3, 4]);
   });
-  xit('filterAttribs filters \'a\' and \'b\' by default', () => {
+  it('filterAttribs filters \'a\' and \'b\' by default', () => {
     expect(filterAttribs({ a: 1, b: 2, c: 3 })).toEqual({ c: 3 });
     expect(filterAttribs({ b: 1, a: 2, c: 3 })).toEqual({ c: 3 });
     expect(filterAttribs({

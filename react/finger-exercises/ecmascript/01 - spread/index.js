@@ -16,16 +16,22 @@ export function min(...args) {
 
 export function copy(args) {
   if (isArray(args)) {
-    let copyArr = args.slice();
+    const copyArr = args.slice();
     return copyArr;
   }
 
-  let copyObj = Object.assign({},args);
+  const copyObj = Object.assign({},args);
 
   return copyObj;
 }
 
 export function reverseMerge(args, args2) {
-  let mergeArr = [...args2, ...args];
+  const mergeArr = [...args2, ...args];
   return mergeArr;
 }
+
+export function filterAttribs (args) {
+  const {a, b, ...rest} = args;
+  return rest; 
+}
+
