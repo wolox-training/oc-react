@@ -2,7 +2,7 @@
 const MAXTIME = 25000;
 
 export function delay(time) {
-  const promise1 = new Promise((resolve) => {
+  const promise1 = new Promise(resolve => {
     const start = Date.now();
     if (time < MAXTIME) {
       setInterval(() => {
@@ -10,11 +10,12 @@ export function delay(time) {
       }, time);
       return promise1;
     }
-    throw new Error('This time is too much !');
+    throw new Error("This time is too much !");
   });
   return promise1;
 }
 
-export function asyncDelay() {
-
+export async function asyncDelay(time) {
+  const promise2 = await delay(time);
+  return promise2;
 }
