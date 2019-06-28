@@ -10,7 +10,7 @@ export function delay(time) {
       }, time);
       return promise1;
     }
-    throw new Error("This time is too much !");
+    throw new Error('This time is too much !');
   });
   return promise1;
 }
