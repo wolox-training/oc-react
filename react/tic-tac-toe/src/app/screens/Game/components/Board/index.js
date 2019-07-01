@@ -9,7 +9,7 @@ class Board extends Component {
     squares : Array(9).fill(null),
   }
 
-  handleClick(i) {
+  handleClick = (i) => {
     const squares = this.state.squares.slice();
     squares[i] = 'X';
     this.setState({squares: squares});
