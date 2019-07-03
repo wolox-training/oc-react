@@ -1,7 +1,8 @@
 import React from 'react';
 
+import {calculateWinner} from './components/utils'
 import styles from './styles.module.scss';
-import Board, { calculateWinner } from './components/Board';
+import Board from './components/Board';
 
 class Game extends React.Component {
   state = {
@@ -65,6 +66,7 @@ class Game extends React.Component {
           <Board status={status} squares={current.squares} handleClick={this.handleClick} />
         </div>
         <div className={styles.gameinfo}>
+
           <ol>{moves}</ol>
         </div>
       </div>

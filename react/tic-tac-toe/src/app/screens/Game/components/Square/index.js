@@ -3,17 +3,22 @@ import PropTypes from 'prop-types';
 
 import styles from './styles.module.scss';
 
-function Square({ onClick, index, value }) {
-  return (
-    <button type="button" className={styles.square} onClick={() => onClick(index)}>
-      {value}
-    </button>
-  );
+class Square extends React.Component {
+  handleClick= () => this.props.onClick(this.props.index)
+
+  render() {
+    const { value } = this.props;
+    return (
+      <button type="button" className={styles.square} onClick={this.handleClick}>
+        {value}
+      </button>
+    );
+  }
 }
 
 Square.propTypes = {
-  onClick: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
+  onClick: PropTypes.func.isRequired,
   value: PropTypes.string
 };
 
