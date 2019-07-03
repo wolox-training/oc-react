@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {calculateWinner} from './components/utils'
+import { calculateWinner } from './components/utils';
 import styles from './styles.module.scss';
 import Board from './components/Board';
 
@@ -23,7 +23,7 @@ class Game extends React.Component {
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
       history: history.concat([{
-        squares: squares,
+        squares: squares
       }]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext
@@ -33,7 +33,7 @@ class Game extends React.Component {
   jumpTo(step) {
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0,
+      xIsNext: step % 2 === 0
     });
   }
 
