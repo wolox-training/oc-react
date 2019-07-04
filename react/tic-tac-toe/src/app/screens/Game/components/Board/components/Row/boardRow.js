@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Square from '../Square';
-
-import styles from './styles.module.scss';
+import Square from './components/Square';
+import styles from './components/Square/styles.module.scss';
 
 
 function RenderRow ({ squares, onClick, indexes }) {
