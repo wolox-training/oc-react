@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
+import {indexes} from './constants';
 import RenderRow from './components/Row';
 import styles from './styles.module.scss';
 
@@ -8,9 +9,7 @@ function Board ({ status, squares, onClick }) {
   return (
     <Fragment>
       <div className={styles.status}>{status}</div>
-      <RenderRow squares={squares} onClick={onClick} indexes={[0, 1, 2]} />
-      <RenderRow squares={squares} onClick={onClick} indexes={[3, 4, 5]} />
-      <RenderRow squares={squares} onClick={onClick} indexes={[6, 7, 8]} />
+      {indexes.map(index => <RenderRow squares={squares} onClick={onClick} rowIndex={index} />)}
     </Fragment>
   );
 }
