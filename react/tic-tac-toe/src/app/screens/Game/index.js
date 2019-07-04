@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { calculateWinner } from './components/utils';
 import styles from './styles.module.scss';
 import Board from './components/Board';
 
-class Game extends React.Component {
+class Game extends Component {
   state = {
     history: [{
       squares: Array(9).fill(null)
@@ -15,21 +15,21 @@ class Game extends React.Component {
   };
 
   handleClick = (i) => {
-    const { history } = this.state;
+    const { history, xIsNext, winner } = this.state;
     const current = history[history.length - 1];
     const squares = current.squares.slice();
-    if (this.state.winner || squares[i]) {
+    if (winner || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
-    const winner = calculateWinner(squares);
+    squares[i] = xIsNext ? 'X' : 'O';
+    const winnerCalculate = calculateWinner(squares);
     this.setState({
-      winner,
+      winner: winnerCalculate,
       history: history.concat([{
         squares
       }]),
       stepNumber: history.length,
-      xIsNext: !this.state.xIsNext
+      xIsNext: !xIsNext
     });
   }
 
@@ -45,31 +45,23 @@ class Game extends React.Component {
     const current = history[this.state.stepNumber];
     const { winner } = this.state;
     const moves = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+      const desc = move
+        ? `Go to move # ${move}`
+        : 'Go to game start';
       return (
-        <li key ={move}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
+        <li key={move}>
+          <button type="button" onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
 
-
-    let status;
-    if (winner) {
-      status = 'Winner: ' + winner;
-    } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    }
-
+    const status = winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     return (
       <div className={styles.game}>
         <div className={styles.gameboard}>
-          <Board status={status} squares={current.squares} handleClick={this.handleClick} />
+          <Board status={status} squares={current.squares} onClick={this.handleClick} />
         </div>
         <div className={styles.gameinfo}>
-
           <ol>{moves}</ol>
         </div>
       </div>

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import styles from './styles.module.scss';
 
-class Square extends React.Component {
+class Square extends Component {
   handleClick= () => this.props.onClick(this.props.index)
 
   render() {
