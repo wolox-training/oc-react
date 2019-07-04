@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import RenderRow from './components/Row/boardRow';
+import RenderRow from './components/Row';
 import styles from './styles.module.scss';
 
 function Board ({ status, squares, onClick }) {
