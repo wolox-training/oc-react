@@ -9,7 +9,7 @@ function Board ({ status, squares, onClick }) {
   return (
     <Fragment>
       <div className={styles.status}>{status}</div>
-      {indexes.map(index => <RenderRow squares={squares} onClick={onClick} rowIndex={index} />)}
+      {indexes && indexes.map(index => <RenderRow squares={squares} onClick={onClick} rowIndex={index} />)}
     </Fragment>
   );
 }

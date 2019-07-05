@@ -9,7 +9,7 @@ import styles from './components/Square/styles.module.scss';
 function RenderRow ({ squares, onClick, rowIndex }) {
   return (
     <div className={styles.bordRow}>
-      { indexes.map(i =>
+      { indexes && indexes.map(i =>
         <Square key={i + rowIndex * 3} value={squares[i + rowIndex * 3]} index={i + rowIndex * 3} onClick={onClick} />
       )}
     </div>
