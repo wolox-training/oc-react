@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { calculateWinner } from './components/utils';
+import { calculateWinner, renderMoves } from './components/utils';
 import styles from './styles.module.scss';
 import Board from './components/Board';
 
@@ -44,16 +44,7 @@ class Game extends Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[this.state.stepNumber];
     const { winner } = this.state;
-    const moves = history.map((step, move) => {
-      const desc = move
-        ? `Go to move # ${move}`
-        : 'Go to game start';
-      return (
-        <li key={move}>
-          <button type="button" onClick={() => this.jumpTo(move)}>{desc}</button>
-        </li>
-      );
-    });
+    const moves = history.map(renderMoves);
 
     const status = winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     return (
