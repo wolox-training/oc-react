@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import {indexes} from './constants';
+import { indexes } from './constants';
 import RenderRow from './components/Row';
 import styles from './styles.module.scss';
 
