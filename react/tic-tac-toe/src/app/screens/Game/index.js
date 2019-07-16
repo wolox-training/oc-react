@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { calculateWinner, renderMoves } from './components/utils';
 import styles from './styles.module.scss';
 import Board from './components/Board';
+import MatchesList from './components/Matches';
 
 class Game extends Component {
   state = {
@@ -54,6 +55,9 @@ class Game extends Component {
         </div>
         <div className={styles.gameinfo}>
           <ol>{moves}</ol>
+        </div>
+        <div className={styles.gameInfo}>
+          <MatchesList/>
         </div>
       </div>
     );
