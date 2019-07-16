@@ -6,12 +6,17 @@ import App from './app';
 import './config/i18n';
 import './scss/application.scss';
 import { register } from './serviceWorker';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+
 
 const render = () => {
   ReactDOM.render(
-    <AppContainer>
-      <App />
-    </AppContainer>,
+    <Provider store={store}>
+      <AppContainer>
+        <App />
+      </AppContainer>
+    </Provider>,
     document.getElementById('root')
   );
 };
