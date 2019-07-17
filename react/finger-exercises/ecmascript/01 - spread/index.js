@@ -15,12 +15,19 @@ export function min(...args) {
 }
 
 export function copy(args) {
-  return (isArray(args) ? [...args.slice()] : { ...args });
+  if (isArray(args)) {
+    const copyArr = args.slice();
+    return copyArr;
+  }
+
+  const copyObj = Object.assign({}, args);
+
+  return copyObj;
 }
 
 export function reverseMerge(args, args2) {
-  const mergeArray = [...args2, ...args];
-  return mergeArray;
+  const mergeArr = [...args2, ...args];
+  return mergeArr;
 }
 
 export function filterAttribs(args) {
