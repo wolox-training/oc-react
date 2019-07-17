@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../../Game/components/Matches/styles.module.scss'
 
 export function calculateWinner(squares) {
   const lines = [
@@ -30,3 +31,5 @@ export const renderMoves = (step, move) => {
     </li>
   );
 }
+
+export const getWinnerClass = isWinner => isWinner ? styles.winner : '';
