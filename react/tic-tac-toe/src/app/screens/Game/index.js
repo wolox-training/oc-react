@@ -4,6 +4,9 @@ import { calculateWinner, renderMoves } from './components/utils';
 import styles from './styles.module.scss';
 import Board from './components/Board';
 import MatchesList from './components/Matches';
+import { connect } from 'react-redux';
+import actionsCreators from '../../../../src/redux/game/actions';
+
 
 class Game extends Component {
   state = {
@@ -64,4 +67,14 @@ class Game extends Component {
   }
 }
 
-export default Game;
+const mapStateToProps = state => ({
+
+})
+
+const mapDispatchToProps = dispatch => ({
+  addMove: i => dispatch(actionsCreators.addMove(i)),
+  goToMove: step => dispatch(actionsCreators.goToMove(step))
+})
+
+export default connect (
+  mapStateToProps, mapDispatchToProps)(Game);
