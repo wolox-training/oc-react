@@ -20,13 +20,3 @@ export function calculateWinner(squares) {
   return null;
 }
 
-export const renderMoves = (step, move) => {
-  const desc = move
-    ? `Go to move # ${move}`
-    : 'Go to game start';
-  return (
-    <li key={move}>
-      <button type="button" onClick={() => this.jumpTo(move)}>{desc}</button>
-    </li>
-  );
-}

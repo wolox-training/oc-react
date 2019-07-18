@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
+import { Provider } from 'react-redux';
 
 import App from './app';
 import './config/i18n';
 import './scss/application.scss';
 import { register } from './serviceWorker';
-import { Provider } from 'react-redux';
 import store from './redux/store';
-
 
 const render = () => {
   ReactDOM.render(

@@ -13,5 +13,10 @@ export default {
   goToMove: step => ({
     type: actions.GO_TO_MOVE,
     payload: step
+  }),
+
+  setWinner: winner =>({
+    type: actions.SET_WINNER,
+    payload: winner
   })
 }
