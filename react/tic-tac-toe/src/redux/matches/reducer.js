@@ -10,8 +10,20 @@ function reducer(state = initialState, action) {
     case actions.GET_MATCHES:
       return {
         ...state,
-        matches: action.payload,
         loading: !state.loading
+      };
+    case actions.GET_MATCHES_SUCCESS:
+      return {
+        ...state,
+        matches: action.payload.matches,
+        loading: false,
+        error: null
+      };
+    case actions.GET_MATCHES_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error
       };
     default:
       return state;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import PropTypes, { arrayOf, string } from 'prop-types';
 
 import actionsCreators from '../../../redux/game/actions';
 
@@ -64,20 +64,20 @@ class Game extends Component {
 }
 
 Game.propTypes = {
-  addMove: PropTypes.func.isRequired,
-  goToMove: PropTypes.func.isRequired,
-  history: PropTypes.arrayOf.isRequired,
-  setWinner: PropTypes.func.isRequired,
-  stepNumber: PropTypes.string.isRequired,
-  winner: PropTypes.string.isRequired,
-  xIsNext: PropTypes.bool.isRequired
+  addMove: PropTypes.func,
+  goToMove: PropTypes.func,
+  history: arrayOf(arrayOf(string)),
+  setWinner: PropTypes.func,
+  stepNumber: PropTypes.number,
+  winner: PropTypes.string,
+  xIsNext: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
-  history: state.history,
-  stepNumber: state.stepNumber,
-  xIsNext: state.xIsNext,
-  winner: state.winner
+  history: state.game.history,
+  stepNumber: state.game.stepNumber,
+  xIsNext: state.game.xIsNext,
+  winner: state.game.winner
 });
 
 const mapDispatchToProps = dispatch => ({

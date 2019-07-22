@@ -5,11 +5,13 @@ import { indexes } from './constants';
 import RenderRow from './components/Row';
 import styles from './styles.module.scss';
 
-function Board ({ status, squares, onClick }) {
+function Board({ status, squares, onClick }) {
+  console.log('board', squares)
   return (
     <Fragment>
       <div className={styles.status}>{status}</div>
-      {indexes && indexes.map(index => <RenderRow squares={squares} onClick={onClick} rowIndex={index} />)}
+      {indexes &&
+        indexes.map(index => <RenderRow key={index} squares={squares} onClick={onClick} rowIndex={index} />)}
     </Fragment>
   );
 }

@@ -38,6 +38,8 @@ const addCamelCaseToCSSModules = config => {
 module.exports = function override(config) {
   addCamelCaseToCSSModules(config);
   enableBabelRc(config);
+  config.cache = false;
+  config.resolve.alias = { 'react-dom': '@hot-loader/react-dom' };
   /*
    * TODO: Soon..
    * return rewireWolox(config, env);
