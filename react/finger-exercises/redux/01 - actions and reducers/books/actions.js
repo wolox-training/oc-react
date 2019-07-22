@@ -19,10 +19,10 @@ The purpose of this object is to have all the action-creating logic in a single
 place. All actions types must only be used inside an actionCreator.
 */
 export default {
-  setFavoriteBook: title => ({
+  setFavoriteBook: favoriteBook => ({
     type: actions.SET_FAVORITE_BOOK,
     payload: {
-      favoriteBook: title
+      favoriteBook
     }
   }),
   addReadBook: title => ({
@@ -31,10 +31,10 @@ export default {
       title
     }
   }),
-  setMostHatedBook: title => ({
+  setMostHatedBook: mostHatedBook => ({
     type: actions.SET_MOST_HATED_BOOK,
     payload: {
-      mostHatedBook: title
+      mostHatedBook
     }
   })
 };
