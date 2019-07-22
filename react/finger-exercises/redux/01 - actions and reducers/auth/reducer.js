@@ -8,11 +8,10 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.LOGS_IN:
-      return {
-        ...state,
+      return state.merge({
         email: action.payload.email,
         token: action.payload.token
-      };
+      });
     default:
       return state;
   }

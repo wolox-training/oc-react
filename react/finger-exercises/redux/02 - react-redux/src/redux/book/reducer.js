@@ -2,41 +2,36 @@ import { actions } from './actions';
 
 const initialState = {
   books: [],
-  bookSelected: [],
+  booksSelected: [],
   originalData: []
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.GET_BOOKS:
-      return {
-        ...state,
+      return state.merge({
         books: action.payload,
         originalData: action.payload
-      };
+      });
     case actions.ADD_TO_CART:
-      return {
-        ...state,
-        bookSelected: state.bookSelected.concat(action.payload)
-      };
+      return state.merge({
+        booksSelected: state.booksSelected.concat(action.payload)
+      });
     case actions.ADD_ITEM:
-      return {
-        ...state,
-        bookSelected: state.bookSelected.map(book => ({
+      return state.merge({
+        booksSelected: state.booksSelected.map(book => ({
           ...book,
           quantity: book.quantity + (book.id === action.payload)
         }))
-      };
+      });
     case actions.REMOVE_ITEM:
-      return {
-        ...state,
-        bookSelected: state.bookSelected.filter(book => book.id !== action.payload)
-      };
+      return state.merge({
+        booksSelected: state.booksSelected.filter(book => book.id !== action.payload)
+      });
     case actions.SEARCH_ITEM:
-      return {
-        ...state,
+      return state.merge({
         books: state.originalData.filter(book => book.name.toLowerCase().includes(action.payload))
-      };
+      });
     default:
       return state;
   }

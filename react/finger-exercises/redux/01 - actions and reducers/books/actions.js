@@ -25,14 +25,12 @@ export default {
       favoriteBook: title
     }
   }),
-
   addReadBook: title => ({
     type: actions.ADD_READ_BOOK,
     payload: {
       title
     }
   }),
-
   setMostHatedBook: title => ({
     type: actions.SET_MOST_HATED_BOOK,
     payload: {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 import { arrayOf, func } from 'prop-types';
-import { bookSelectedPropType, booksPropType } from '@constants/propTypes';
+import { booksSelectedPropType, booksPropType } from '@constants/propTypes';
 
 import actionsCreators from '../../../redux/book/actions';
 
@@ -30,7 +30,7 @@ class App extends Component {
   };
 
   renderBooks = item => {
-    const showButton = !this.props.bookSelected.some(el => el.id === item.id);
+    const showButton = !this.props.booksSelected.some(book => book.id === item.id);
     const configButton = showButton ? this.CONFIGURATION_BUTTON.add : this.CONFIGURATION_BUTTON.remove;
     return <Book key={item.id} data={item} configButton={configButton} />;
   };
@@ -49,7 +49,7 @@ class App extends Component {
             </div>
           )}
         </div>
-        {this.props.bookSelected.length && <ShoppingCart />}
+        {this.props.booksSelected.length && <ShoppingCart />}
         <Footer />
       </Fragment>
     );
@@ -61,13 +61,13 @@ App.propTypes = {
   removeItem: func.isRequired,
   onSearch: func.isRequired,
   addToCart: func.isRequired,
-  bookSelected: arrayOf(bookSelectedPropType).isRequired,
+  booksSelected: arrayOf(booksSelectedPropType).isRequired,
   getBooks: func.isRequired
 };
 
 const mapStateToProps = state => ({
   books: state.books,
-  bookSelected: state.bookSelected
+  booksSelected: state.booksSelected
 });
 
 const mapDispatchToProps = dispatch => ({
