@@ -1,37 +1,23 @@
-import React, { Component } from 'react';
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-import Square from '../Square';
-
+import { indexes } from './constants';
+import RenderRow from './components/Row';
 import styles from './styles.module.scss';
 
-class Board extends Component {
-  renderSquare() {
-    return <Square />;
-  }
-
-  render() {
-    const status = 'Next player: X';
-    return (
-      <div>
-        <div className={styles.status}>{status}</div>
-        <div className={styles.boardRow}>
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className={styles.boardRow}>
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className={styles.boardRow}>
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
-      </div>
-    );
-  }
+function Board ({ status, squares, onClick }) {
+  return (
+    <Fragment>
+      <div className={styles.status}>{status}</div>
+      {indexes && indexes.map(index => <RenderRow squares={squares} onClick={onClick} rowIndex={index} />)}
+    </Fragment>
+  );
 }
+
+Board.propTypes = {
+  squares: PropTypes.arrayOf(PropTypes.string).isRequired,
+  status: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
+};
 
 export default Board;
