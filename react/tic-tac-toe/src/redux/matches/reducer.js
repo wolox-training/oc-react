@@ -1,3 +1,5 @@
+import Immutable from 'seamless-immutable';
+
 import { actions } from './actions';
 
 const initialState = {
@@ -5,26 +7,22 @@ const initialState = {
   loading: true
 };
 
-function reducer(state = initialState, action) {
+function reducer(state = Immutable(initialState), action) {
   switch (action.type) {
     case actions.GET_MATCHES:
-      return {
-        ...state,
+      return state.merge({
         loading: !state.loading
-      };
+      });
     case actions.GET_MATCHES_SUCCESS:
-      return {
-        ...state,
+      return state.merge({
         matches: action.payload.matches,
         loading: false,
         error: null
-      };
+      });
     case actions.GET_MATCHES_FAILURE:
-      return {
-        ...state,
-        loading: false,
+      return state.merge({
         error: action.payload.error
-      };
+      });
     default:
       return state;
   }

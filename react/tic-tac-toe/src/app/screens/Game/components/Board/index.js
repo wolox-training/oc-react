@@ -6,7 +6,6 @@ import RenderRow from './components/Row';
 import styles from './styles.module.scss';
 
 function Board({ status, squares, onClick }) {
-  console.log('board', squares)
   return (
     <Fragment>
       <div className={styles.status}>{status}</div>

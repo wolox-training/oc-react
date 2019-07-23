@@ -24,7 +24,7 @@ class Game extends Component {
   handleClick = i => {
     const { history, xIsNext, winner } = this.props;
     const current = history[history.length - 1];
-    const squares = current.slice();
+    const squares = [...current];
 
     if (winner || squares[i]) {
       return;
