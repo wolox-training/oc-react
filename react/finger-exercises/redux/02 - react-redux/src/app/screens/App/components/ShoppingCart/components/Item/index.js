@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { func } from 'prop-types';
-import { booksSelectedPropType } from '@constants/propTypes';
+import { booksPropType } from '@constants/propTypes';
 import Button from '@components/Button';
 
 import styles from './styles.scss';
@@ -36,7 +36,7 @@ class Item extends PureComponent {
 }
 
 Item.propTypes = {
-  item: booksSelectedPropType,
+  item: booksPropType,
   addItem: func.isRequired,
   removeItem: func.isRequired
 };

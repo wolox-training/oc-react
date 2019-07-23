@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Navbar from '@components/Navbar';
 import Footer from '@components/Footer';
 import { arrayOf, func } from 'prop-types';
-import { booksSelectedPropType, booksPropType } from '@constants/propTypes';
+import { booksPropType } from '@constants/propTypes';
 
 import actionsCreators from '../../../redux/book/actions';
 
@@ -61,7 +61,7 @@ App.propTypes = {
   removeItem: func.isRequired,
   onSearch: func.isRequired,
   addToCart: func.isRequired,
-  booksSelected: arrayOf(booksSelectedPropType).isRequired,
+  booksSelected: arrayOf(booksPropType).isRequired,
   getBooks: func.isRequired
 };
 

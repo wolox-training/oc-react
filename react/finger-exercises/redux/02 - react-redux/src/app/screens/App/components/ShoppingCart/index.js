@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import { arrayOf, func } from 'prop-types';
-import { booksSelectedPropType } from '@constants/propTypes';
+import { booksPropType } from '@constants/propTypes';
 import Button from '@components/Button';
 import { connect } from 'react-redux';
 
@@ -45,7 +45,7 @@ class ShoppingCart extends PureComponent {
 }
 
 ShoppingCart.propTypes = {
-  booksSelected: arrayOf(booksSelectedPropType).isRequired,
+  booksSelected: arrayOf(booksPropType).isRequired,
   addItem: func.isRequired,
   removeItem: func.isRequired
 };
