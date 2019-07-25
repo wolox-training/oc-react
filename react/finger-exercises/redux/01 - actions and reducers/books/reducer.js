@@ -11,7 +11,8 @@ don't add it to the initialState, they'll probably won't notice it's there.
 */
 const initialState = {
   favoriteBook: null,
-  readBooks: ['Moby Dick']
+  readBooks: ['Moby Dick', 'The Lord of the Rings'],
+  mostHatedBook: null
 };
 
 /*
@@ -22,10 +23,13 @@ In our case, the reducer only knows how to set our favorite book on the store.
 function reducer(state = initialState, action) {
   switch (action.type) {
     case actions.SET_FAVORITE_BOOK:
-      return {
-        ...state,
+      return state.merge({
         favoriteBook: action.payload.favoriteBook
-      };
+      });
+    case actions.SET_MOST_HATED_BOOK:
+      return state.merge({
+        mostHatedBook: action.payload.mostHatedBook
+      });
     default:
       return state;
   }
