@@ -1,7 +1,10 @@
 import React, { PureComponent, Fragment } from 'react';
 import { arrayOf, func } from 'prop-types';
-import { bookSelectedPropType } from '@constants/propTypes';
+import { booksPropType } from '@constants/propTypes';
 import Button from '@components/Button';
+import { connect } from 'react-redux';
+
+import actionsCreators from '../../../../../redux/book/actions';
 
 import Item from './components/Item';
 import styles from './styles.scss';
@@ -25,7 +28,7 @@ class ShoppingCart extends PureComponent {
   };
 
   render() {
-    const { data } = this.props;
+    const { booksSelected } = this.props;
     return (
       <Fragment>
         <Button className={styles.buttonCart} onClick={this.toggleContent}>
@@ -33,8 +36,8 @@ class ShoppingCart extends PureComponent {
         </Button>
         <div className={`${styles.container} ${this.state.open ? styles.open : ''}`}>
           <h1 className={styles.title}>Cart</h1>
-          <ul className={styles.content}>{data.map(this.renderItem)}</ul>
-          <h2 className={`${styles.title} ${styles.total}`}>Total: {data.reduce(this.total, 0)}</h2>
+          <ul className={styles.content}>{booksSelected.map(this.renderItem)}</ul>
+          <h2 className={`${styles.title} ${styles.total}`}>Total: {booksSelected.reduce(this.total, 0)}</h2>
         </div>
       </Fragment>
     );
@@ -42,9 +45,21 @@ class ShoppingCart extends PureComponent {
 }
 
 ShoppingCart.propTypes = {
-  data: arrayOf(bookSelectedPropType).isRequired,
+  booksSelected: arrayOf(booksPropType).isRequired,
   addItem: func.isRequired,
   removeItem: func.isRequired
 };
 
-export default ShoppingCart;
+const mapStateToProps = state => ({
+  booksSelected: state.booksSelected
+});
+
+const mapDispatchToProps = dispatch => ({
+  addItem: itemID => dispatch(actionsCreators.addItem(itemID)),
+  removeItem: itemID => dispatch(actionsCreators.removeItem(itemID))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(ShoppingCart);
