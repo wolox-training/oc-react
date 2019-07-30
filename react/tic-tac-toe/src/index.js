@@ -2,9 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 
+import { GAME, LOGIN } from './constants/routes';
 import App from './app';
 import LoginForm from './app/screens/Login';
 import './config/i18n';
@@ -17,12 +18,10 @@ const render = () => {
     <AppContainer>
       <Provider store={store}>
         <ConnectedRouter history={history}>
-          <Router>
-            <div>
-              <Route exact path="/" component={App} />
-              <Route path="/login" component={LoginForm} />
-            </div>
-          </Router>
+          <Switch>
+            <Route path={GAME} component={App} />
+            <Route path={LOGIN} component={LoginForm} />
+          </Switch>
         </ConnectedRouter>
       </Provider>
     </AppContainer>,

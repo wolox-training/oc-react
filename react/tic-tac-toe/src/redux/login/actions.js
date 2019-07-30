@@ -1,4 +1,7 @@
+import { push } from 'connected-react-router';
+
 import LoginService from '../../services/LoginService';
+import { GAME } from '../../constants/routes';
 
 export const actions = {
   GET_LOGIN: '@@LOGIN/GET_LOGIN',
@@ -11,6 +14,8 @@ const actionsCreators = {
     dispatch({ type: actions.GET_LOGIN });
     const response = await LoginService.getLogin(values);
     if (response.ok) {
+      window.localStorage.setItem('token', JSON.stringify(values));
+      dispatch(push(GAME));
       dispatch({
         type: actions.GET_LOGIN_SUCCESS,
         payload: response.data
