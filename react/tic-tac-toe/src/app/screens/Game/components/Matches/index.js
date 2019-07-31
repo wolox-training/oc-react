@@ -1,12 +1,11 @@
+/* eslint-disable no-extra-parens */
 import React, { Component, Fragment } from 'react';
 import Spinner from 'react-spinkit';
 
+import { getWinnerClass } from '../utils';
 import MatchesService from '../../../../../services/MatchesService';
 
-import styles from './styles.module.scss';
 import { PLAYER_ONE, PLAYER_TWO } from './constants';
-
-const getWinnerClass = isWinner => (isWinner ? styles.winner : '');
 
 class MatchesList extends Component {
   state = {
@@ -27,14 +26,14 @@ class MatchesList extends Component {
         <h1>Historial de juegos</h1>
         {this.state.loading ? (
           <Spinner name="circle" color="purple" />
-        ) :
+        ) : (
           this.state.val.map(item => (
             <li key={item.id}>
-              <span className={getWinnerClass(item.winner === PLAYER_ONE)}>{item.player_one}</span> -
-              <span className={getWinnerClass(item.winner === PLAYER_TWO)}>{item.player_two}</span>{' '}
-            </li>)
-          )
-        }
+              <span className={getWinnerClass(item.winner === PLAYER_ONE)}>{item.player_one}</span> {' - '}
+              <span className={getWinnerClass(item.winner === PLAYER_TWO)}>{item.player_two}</span>
+            </li>
+          ))
+        )}
       </Fragment>
     );
   }
