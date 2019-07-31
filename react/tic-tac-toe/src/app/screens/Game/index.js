@@ -1,67 +1,92 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { calculateWinner, renderMoves } from './components/utils';
+import actionsCreators from '../../../redux/game/actions';
+
+import { calculateWinner } from './components/utils';
 import styles from './styles.module.scss';
 import Board from './components/Board';
 import MatchesList from './components/Matches';
 
 class Game extends Component {
-  state = {
-    history: [{
-      squares: Array(9).fill(null)
-    }],
-    stepNumber: 0,
-    xIsNext: true,
-    winner: null
+  renderMoves = (_, move) => {
+    const desc = move ? `Go to move # ${move}` : 'Go to game start';
+    return (
+      <li key={move}>
+        <button type="button" onClick={() => this.props.goToMove(move)}>
+          {desc}
+        </button>
+      </li>
+    );
   };
 
-  handleClick = (i) => {
-    const { history, xIsNext, winner } = this.state;
+  handleClick = i => {
+    const { history, xIsNext, winner } = this.props;
     const current = history[history.length - 1];
-    const squares = current.squares.slice();
+    const squares = current.slice();
+
     if (winner || squares[i]) {
       return;
     }
-    squares[i] = xIsNext ? 'X' : 'O';
-    const winnerCalculate = calculateWinner(squares);
-    this.setState({
-      winner: winnerCalculate,
-      history: history.concat([{
-        squares
-      }]),
-      stepNumber: history.length,
-      xIsNext: !xIsNext
-    });
-  }
 
-  jumpTo(step) {
-    this.setState({
-      stepNumber: step,
-      xIsNext: step % 2 === 0
-    });
-  }
+    squares[i] = xIsNext ? 'X' : 'O';
+
+    const winnerCalculate = calculateWinner(squares);
+    this.props.addMove(squares);
+
+    if (winnerCalculate) {
+      this.props.setWinner(winnerCalculate);
+    }
+  };
 
   render() {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[this.state.stepNumber];
-    const { winner } = this.state;
-    const moves = history.map(renderMoves);
+    const { winner, stepNumber, xIsNext } = this.props;
+    const history = this.props.history.slice(0, stepNumber + 1);
+    const current = history[stepNumber];
+    const moves = history.map(this.renderMoves);
+    const status = winner ? `Winner: ${winner}` : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
-    const status = winner ? `Winner: ${winner}` : `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
     return (
       <div className={styles.game}>
         <div className={styles.gameboard}>
-          <Board status={status} squares={current.squares} onClick={this.handleClick} />
+          <Board status={status} squares={current} onClick={this.handleClick} />
         </div>
         <div className={styles.gameinfo}>
           <ol>{moves}</ol>
         </div>
         <div className={styles.gameInfo}>
-          <MatchesList/>
+          <MatchesList />
         </div>
       </div>
     );
   }
 }
 
-export default Game;
+Game.propTypes = {
+  addMove: PropTypes.func.isRequired,
+  goToMove: PropTypes.func.isRequired,
+  history: PropTypes.arrayOf.isRequired,
+  setWinner: PropTypes.func.isRequired,
+  stepNumber: PropTypes.string.isRequired,
+  winner: PropTypes.string.isRequired,
+  xIsNext: PropTypes.bool.isRequired
+};
+
+const mapStateToProps = state => ({
+  history: state.history,
+  stepNumber: state.stepNumber,
+  xIsNext: state.xIsNext,
+  winner: state.winner
+});
+
+const mapDispatchToProps = dispatch => ({
+  addMove: i => dispatch(actionsCreators.addMove(i)),
+  goToMove: step => dispatch(actionsCreators.goToMove(step)),
+  setWinner: winner => dispatch(actionsCreators.setWinner(winner))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Game);
