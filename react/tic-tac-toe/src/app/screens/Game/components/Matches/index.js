@@ -1,10 +1,9 @@
 /* eslint-disable no-extra-parens */
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { func, bool, arrayOf, shape } from 'prop-types';
+import { func, bool, arrayOf, shape, string } from 'prop-types';
 import Spinner from 'react-spinkit';
 
-import MatchesService from '../../../../../services/MatchesService';
 import actionsCreators from '../../../../../redux/matches/actions';
 
 import styles from './styles.module.scss';
@@ -14,10 +13,7 @@ const getWinnerClass = isWinner => (isWinner ? styles.winner : '');
 
 class MatchesList extends Component {
   componentDidMount() {
-    const match = MatchesService.getMatches();
-    match.then(resolve => {
-      this.props.getMatches(resolve.data);
-    });
+    this.props.getMatches(this.props.data);
   }
 
   render() {
@@ -40,6 +36,7 @@ class MatchesList extends Component {
 }
 
 MatchesList.propTypes = {
+  data: string.isRequired,
   getMatches: func.isRequired,
   loading: bool.isRequired,
   matches: arrayOf(shape({})).isRequired
