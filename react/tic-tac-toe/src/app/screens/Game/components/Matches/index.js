@@ -1,7 +1,7 @@
 /* eslint-disable no-extra-parens */
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { func, bool, arrayOf, shape } from 'prop-types';
+import { func, bool, arrayOf, shape, number, string } from 'prop-types';
 import Spinner from 'react-spinkit';
 
 import MatchesService from '../../../../../services/MatchesService';
@@ -29,7 +29,7 @@ class MatchesList extends Component {
         ) : (
           this.props.matches.map(item => (
             <li key={item.id}>
-              <span className={getWinnerClass(item.winner === PLAYER_ONE)}>{item.player_one}</span>
+              <span className={getWinnerClass(item.winner === PLAYER_ONE)}>{item.player_one}</span> {'-'}
               <span className={getWinnerClass(item.winner === PLAYER_TWO)}>{item.player_two}</span>
             </li>
           ))
@@ -42,7 +42,7 @@ class MatchesList extends Component {
 MatchesList.propTypes = {
   getMatches: func.isRequired,
   loading: bool.isRequired,
-  matches: arrayOf(shape({})).isRequired
+  matches: arrayOf(shape({ id: number, winner: string })).isRequired
 };
 
 const mapStateToProps = state => ({
