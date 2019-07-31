@@ -2,6 +2,8 @@ import { push } from 'connected-react-router';
 
 import LoginService from '../../services/LoginService';
 import { GAME } from '../../constants/routes';
+import api from '../../config/api';
+import { TOKEN } from '../../constants/autentications';
 
 export const actions = {
   GET_LOGIN: '@@LOGIN/GET_LOGIN',
@@ -14,7 +16,9 @@ const actionsCreators = {
     dispatch({ type: actions.GET_LOGIN });
     const response = await LoginService.getLogin(values);
     if (response.ok) {
-      window.localStorage.setItem('token', JSON.stringify(values));
+      const tokenEnc = window.btoa(response.data.token);
+      window.localStorage.setItem({ TOKEN }, JSON.stringify(tokenEnc));
+      api.setHeader({ TOKEN }, tokenEnc);
       dispatch(push(GAME));
       dispatch({
         type: actions.GET_LOGIN_SUCCESS,
