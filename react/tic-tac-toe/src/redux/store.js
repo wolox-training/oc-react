@@ -6,6 +6,7 @@ import { createBrowserHistory } from 'history';
 
 import game from './game/reducer';
 import matches from './matches/reducer';
+import login from './login/reducer';
 
 export const history = createBrowserHistory();
 
@@ -13,6 +14,7 @@ const reducer = combineReducers({
   game,
   matches,
   form: formReducer,
+  login,
   router: connectRouter(history)
 });
 

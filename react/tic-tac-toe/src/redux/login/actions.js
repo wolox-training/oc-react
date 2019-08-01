@@ -18,7 +18,7 @@ const actionsCreators = {
     if (response.ok) {
       const tokenEnc = window.btoa(response.data.token);
       window.localStorage.setItem({ TOKEN }, JSON.stringify(tokenEnc));
-      api.setHeader({ TOKEN }, tokenEnc);
+      api.setHeader(TOKEN, tokenEnc);
       dispatch(push(GAME));
       dispatch({
         type: actions.GET_LOGIN_SUCCESS,
