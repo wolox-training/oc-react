@@ -1,7 +1,7 @@
 /* eslint-disable no-extra-parens */
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { func, bool, arrayOf, shape, string } from 'prop-types';
+import { func, bool, arrayOf, shape } from 'prop-types';
 import Spinner from 'react-spinkit';
 
 import actionsCreators from '../../../../../redux/matches/actions';
@@ -11,7 +11,7 @@ import { PLAYER_ONE, PLAYER_TWO } from './constants';
 
 class MatchesList extends Component {
   componentDidMount() {
-    this.props.getMatches(this.props.data);
+    this.props.getMatches();
   }
 
   render() {
@@ -34,7 +34,6 @@ class MatchesList extends Component {
 }
 
 MatchesList.propTypes = {
-  data: string.isRequired,
   getMatches: func.isRequired,
   loading: bool.isRequired,
   matches: arrayOf(shape({})).isRequired
