@@ -11,23 +11,23 @@ import store from './redux/store';
 
 const render = () => {
   ReactDOM.render(
-    <Provider store={store}>
-      <AppContainer>
+    <AppContainer>
+      <Provider store={store}>
         <App />
-      </AppContainer>
-    </Provider>,
+      </Provider>
+    </AppContainer>,
     document.getElementById('root')
   );
 };
 
 // Render once
-render(App);
+render();
 
 register();
 
 // Webpack Hot Module Replacement API
 if (module.hot) {
   module.hot.accept('./app', () => {
-    render(App);
+    render();
   });
 }

@@ -15,8 +15,8 @@ export default {
     payload: step
   }),
 
-  setWinner: winner =>({
+  setWinner: winner => ({
     type: actions.SET_WINNER,
     payload: winner
   })
-}
+};

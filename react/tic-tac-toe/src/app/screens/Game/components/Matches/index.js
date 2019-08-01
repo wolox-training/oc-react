@@ -1,35 +1,29 @@
 /* eslint-disable no-extra-parens */
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+import { func, bool, arrayOf, shape } from 'prop-types';
 import Spinner from 'react-spinkit';
 
+import actionsCreators from '../../../../../redux/matches/actions';
 import { getWinnerClass } from '../utils';
-import MatchesService from '../../../../../services/MatchesService';
 
 import { PLAYER_ONE, PLAYER_TWO } from './constants';
 
 class MatchesList extends Component {
-  state = {
-    val: [],
-    loading: true
-  };
-
   componentDidMount() {
-    const match = MatchesService.getMatches();
-    match.then(resolve => {
-      this.setState({ val: resolve.data, loading: false });
-    });
+    this.props.getMatches();
   }
 
   render() {
     return (
       <Fragment>
         <h1>Historial de juegos</h1>
-        {this.state.loading ? (
+        {this.props.loading || !this.props.matches ? (
           <Spinner name="circle" color="purple" />
         ) : (
-          this.state.val.map(item => (
+          this.props.matches.map(item => (
             <li key={item.id}>
-              <span className={getWinnerClass(item.winner === PLAYER_ONE)}>{item.player_one}</span> {' - '}
+              <span className={getWinnerClass(item.winner === PLAYER_ONE)}>{item.player_one}</span> {'-'}
               <span className={getWinnerClass(item.winner === PLAYER_TWO)}>{item.player_two}</span>
             </li>
           ))
@@ -39,4 +33,22 @@ class MatchesList extends Component {
   }
 }
 
-export default MatchesList;
+MatchesList.propTypes = {
+  getMatches: func.isRequired,
+  loading: bool.isRequired,
+  matches: arrayOf(shape({})).isRequired
+};
+
+const mapStateToProps = state => ({
+  matches: state.matches.matches,
+  loading: state.matches.loading
+});
+
+const mapDispatchToProps = dispatch => ({
+  getMatches: () => dispatch(actionsCreators.getMatches())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MatchesList);
