@@ -5,11 +5,9 @@ import { func, bool, arrayOf, shape, string } from 'prop-types';
 import Spinner from 'react-spinkit';
 
 import actionsCreators from '../../../../../redux/matches/actions';
+import { getWinnerClass } from '../utils';
 
-import styles from './styles.module.scss';
 import { PLAYER_ONE, PLAYER_TWO } from './constants';
-
-const getWinnerClass = isWinner => (isWinner ? styles.winner : '');
 
 class MatchesList extends Component {
   componentDidMount() {
@@ -25,7 +23,7 @@ class MatchesList extends Component {
         ) : (
           this.props.matches.map(item => (
             <li key={item.id}>
-              <span className={getWinnerClass(item.winner === PLAYER_ONE)}>{item.player_one}</span>
+              <span className={getWinnerClass(item.winner === PLAYER_ONE)}>{item.player_one}</span> {'-'}
               <span className={getWinnerClass(item.winner === PLAYER_TWO)}>{item.player_two}</span>
             </li>
           ))
