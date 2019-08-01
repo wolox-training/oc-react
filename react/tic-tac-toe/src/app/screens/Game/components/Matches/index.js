@@ -46,7 +46,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getMatches: data => dispatch(actionsCreators.getMatches(data))
+  getMatches: () => dispatch(actionsCreators.getMatches())
 });
 
 export default connect(
