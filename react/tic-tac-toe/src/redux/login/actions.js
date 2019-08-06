@@ -1,14 +1,15 @@
 import { push } from 'connected-react-router';
 
 import LoginService from '../../services/LoginService';
-import { GAME } from '../../constants/routes';
+import { GAME, LOGIN } from '../../constants/routes';
 import api from '../../config/api';
 import { TOKEN } from '../../constants/autentications';
 
 export const actions = {
   GET_LOGIN: '@@LOGIN/GET_LOGIN',
   GET_LOGIN_SUCCESS: '@@LOGIN/GET_LOGIN_SUCCESS',
-  GET_LOGIN_FAILURE: '@@LOGIN/GET_LOGIN_FAILURE'
+  GET_LOGIN_FAILURE: '@@LOGIN/GET_LOGIN_FAILURE',
+  GET_LOGOUT: '@@LOGOUT/GET_LOGOUT'
 };
 
 const actionsCreators = {
@@ -22,7 +23,7 @@ const actionsCreators = {
       dispatch(push(GAME));
       dispatch({
         type: actions.GET_LOGIN_SUCCESS,
-        payload: response.data
+        payload: { token: response.data, userEmail: values.email }
       });
     } else {
       dispatch({
@@ -30,6 +31,11 @@ const actionsCreators = {
         payload: response.problem
       });
     }
+  },
+  getLogout: () => dispatch => {
+    dispatch(push(LOGIN));
+    delete api.headers[TOKEN];
+    localStorage.removeItem(TOKEN);
   }
 };
 

@@ -9,7 +9,7 @@ import Login from './layout';
 
 class LoginForm extends Component {
   handleSubmit = values => {
-    this.props.getLogin(JSON.stringify(values));
+    this.props.getLogin(values);
   };
 
   render() {
