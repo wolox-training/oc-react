@@ -16,8 +16,7 @@ function reducer(state = Immutable(initialState), action) {
     case actions.GET_LOGIN_SUCCESS:
       return state.merge({
         values: action.payload.values,
-        token: action.payload.token,
-        error: null
+        token: action.payload.token
       });
     case actions.GET_LOGIN_FAILURE:
       return state.merge({
