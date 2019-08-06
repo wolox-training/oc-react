@@ -30,6 +30,14 @@ function reducer(state = Immutable(initialState), action) {
         loading: false,
         isLogged: false
       });
+    case actions.GET_LOGOUT:
+      return state.merge({
+        isLogged: false
+      });
+    case actions.AUTH_INIT:
+      return state.merge({
+        isLogged: true
+      });
     default:
       return state;
   }
