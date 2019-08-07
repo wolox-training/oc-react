@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+
+import userIcon from '../../../../assets/user-astronaut-solid.svg';
+import logOut from '../../../../assets/sign-out-alt-solid.svg';
 
 import styles from './styles.module.scss';
 
@@ -12,10 +13,10 @@ function TopBar({ handleClick, userEmail, isLogged }) {
       {isLogged && (
         <Fragment>
           <button className={styles.user} type="button" onClick={handleClick}>
-            <FontAwesomeIcon icon={faUser} /> {`${userEmail} is logged`}
+            <img className={styles.icons} src={userIcon} alt="userIcon" /> {`${userEmail} is logged`}
           </button>
           <button className={styles.buttonLogOut} type="button" onClick={handleClick}>
-            {'Log Out'} <FontAwesomeIcon icon={faSignOutAlt} />
+            {'Log Out'} <img className={styles.icons} src={logOut} alt="logOutIcon" />
           </button>
         </Fragment>
       )}

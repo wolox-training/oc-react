@@ -6,9 +6,9 @@
   margin-bottom: 20px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   background: linear-gradient($blue, $black);
-  .title{
-    margin-top: 40px;
+  .title {
     color: $black;
     font-size: 35px;
   }
@@ -16,11 +16,15 @@
     color: $white;
     font-weight: bold;
   }
+  .icons {
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+  }
 }
 
 .buttonLogOut {
   font-size: 15px;
   padding: 14px 40px;
-  margin: 10px;
   color: $black;
 }
