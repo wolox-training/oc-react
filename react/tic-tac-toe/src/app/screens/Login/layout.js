@@ -38,5 +38,5 @@ Login.propTypes = {
 };
 
 export default reduxForm({
-  form: { LOGIN }
+  form: LOGIN
 })(Login);
