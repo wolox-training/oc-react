@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 import { email, minLength8 } from './validate';
 import CustomInput from './components/customeInput';
+import { PASSWORD, LOGIN } from './constants';
 
 function Login({ handleSubmit }) {
   return (
@@ -19,9 +20,9 @@ function Login({ handleSubmit }) {
       />
       <Field
         className={styles.fields}
-        name="password"
+        name={PASSWORD}
         component={CustomInput}
-        type="password"
+        type={PASSWORD}
         validate={[minLength8]}
         label="Password"
       />
@@ -37,5 +38,5 @@ Login.propTypes = {
 };
 
 export default reduxForm({
-  form: 'login'
+  form: { LOGIN }
 })(Login);

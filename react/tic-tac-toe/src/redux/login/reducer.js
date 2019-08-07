@@ -20,7 +20,6 @@ function reducer(state = Immutable(initialState), action) {
       return state.merge({
         userEmail: action.payload.userEmail,
         token: action.payload.token,
-        error: null,
         loading: false,
         isLogged: true
       });

@@ -1,7 +1,7 @@
 /* eslint-disable no-extra-parens */
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { func, bool, arrayOf, shape } from 'prop-types';
+import { func, bool, arrayOf, shape, number, string } from 'prop-types';
 import Spinner from 'react-spinkit';
 
 import actionsCreators from '../../../../../redux/matches/actions';
@@ -36,7 +36,7 @@ class MatchesList extends Component {
 MatchesList.propTypes = {
   getMatches: func.isRequired,
   loading: bool.isRequired,
-  matches: arrayOf(shape({})).isRequired
+  matches: arrayOf(shape({ id: number, winner: string })).isRequired
 };
 
 const mapStateToProps = state => ({
