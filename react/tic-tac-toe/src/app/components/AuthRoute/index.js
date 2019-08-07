@@ -14,6 +14,7 @@ class AuthRoute extends Component {
       const token = localStorage.getItem(TOKEN);
       if (!token) {
         this.props.redirectLogin();
+        return;
       }
       this.props.authInit();
     }
