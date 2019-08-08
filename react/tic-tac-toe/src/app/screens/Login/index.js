@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import actionsCreators from '../../../redux/login/actions';
+import actionsAuth from '../../../redux/auth/actions';
 
 import Login from './layout';
 
@@ -22,7 +22,7 @@ LoginForm.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getLogin: values => dispatch(actionsCreators.getLogin(values))
+  getLogin: values => dispatch(actionsAuth.getLogin(values))
 });
 
 export default connect(

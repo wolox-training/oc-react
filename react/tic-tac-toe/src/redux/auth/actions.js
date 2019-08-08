@@ -9,11 +9,11 @@ export const actions = {
   GET_LOGIN: '@@AUTH/GET_LOGIN',
   GET_LOGIN_SUCCESS: '@@AUTH/GET_LOGIN_SUCCESS',
   GET_LOGIN_FAILURE: '@@AUTH/GET_LOGIN_FAILURE',
-  GET_LOGOUT: '@@LOGOUT/GET_LOGOUT',
+  GET_LOGOUT: '@@AUTH/GET_LOGOUT',
   AUTH_INIT: '@@AUTH/AUTH_INIT'
 };
 
-const actionsCreators = {
+const actionsAuth = {
   getLogin: values => async dispatch => {
     dispatch({ type: actions.GET_LOGIN });
     const response = await LoginService.getLogin(values);
@@ -48,4 +48,4 @@ const actionsCreators = {
   }
 };
 
-export default actionsCreators;
+export default actionsAuth;

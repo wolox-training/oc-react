@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history';
 
 import game from './game/reducer';
 import matches from './matches/reducer';
-import login from './login/reducer';
+import login from './auth/reducer';
 
 export const history = createBrowserHistory();
 

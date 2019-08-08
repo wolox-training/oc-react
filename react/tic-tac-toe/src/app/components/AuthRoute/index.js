@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import { TOKEN } from '../../../constants/autentications';
 import { LOGIN } from '../../../constants/routes';
-import actionsCreators from '../../../redux/login/actions';
+import actionsAuth from '../../../redux/auth/actions';
 
 class AuthRoute extends Component {
   componentDidMount() {
@@ -35,7 +35,7 @@ AuthRoute.propTypes = {
 
 const mapDispatchToProps = dispatch => ({
   redirectLogin: () => dispatch(push(LOGIN)),
-  authInit: () => dispatch(actionsCreators.authInit())
+  authInit: () => dispatch(actionsAuth.authInit())
 });
 
 export default connect(

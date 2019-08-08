@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import actionsCreators from '../../../../../redux/login/actions';
+import actionsCreators from '../../../../../redux/auth/actions';
 
 import TopBar from './layout';
 
@@ -12,18 +12,15 @@ class TopBarContainer extends Component {
   };
 
   render() {
-    return (
-      <TopBar
-        handleClick={this.handleClick}
-        userEmail={this.props.userEmail}
-        isLogged={this.props.isLogged}
-      />
-    );
+    const { userEmail, isLogged } = this.props;
+    return <TopBar handleClick={this.handleClick} userEmail={userEmail} isLogged={isLogged} />;
   }
 }
 
 TopBarContainer.propTypes = {
-  userEmail: PropTypes.string.isRequired
+  getLogout: PropTypes.func.isRequired,
+  userEmail: PropTypes.string.isRequired,
+  isLogged: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
