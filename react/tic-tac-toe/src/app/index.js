@@ -4,12 +4,13 @@ import { Provider } from 'react-redux';
 import { Switch } from 'react-router-dom';
 import { ConnectedRouter } from 'connected-react-router';
 
-import { GAME, LOGIN } from '../constants/routes';
+import { GAME, LOGIN, PROFILE } from '../constants/routes';
 import store, { history } from '../redux/store';
 
 import LoginForm from './screens/Login';
 import Game from './screens/Game';
 import TopBar from './screens/Game/components/Topbar';
+import Profile from './screens/Profile';
 import '../scss/application.scss';
 import AuthRoute from './components/AuthRoute';
 
@@ -23,6 +24,7 @@ function App() {
             <Switch>
               <AuthRoute path={GAME} component={Game} isPrivate />
               <AuthRoute path={LOGIN} component={LoginForm} />
+              <AuthRoute path={PROFILE} component={Profile} />
             </Switch>
           </Fragment>
         </ConnectedRouter>

@@ -1,15 +1,15 @@
 @import '../../../../../scss/colors';
 
-.navBar {
+.nav-bar {
   width: 100%;
   height: 100px;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: linear-gradient($blue, $black);
+  background-color: $old-pink;
   .title {
-    color: $black;
+    color:$white;
     font-size: 35px;
   }
   .user {
@@ -23,8 +23,13 @@
   }
 }
 
-.buttonLogOut {
+.button-logOut {
   font-size: 15px;
   padding: 14px 40px;
   color: $black;
+  display: flex;
+  align-items: center;
+  img {
+    margin-left: 5px;
+  }
 }

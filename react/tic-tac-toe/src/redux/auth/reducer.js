@@ -4,6 +4,7 @@ import { actions } from './actions';
 
 const initialState = {
   userEmail: '',
+  userName: '',
   token: '',
   loading: null,
   isLogged: null
@@ -19,6 +20,7 @@ function reducer(state = Immutable(initialState), action) {
     case actions.GET_LOGIN_SUCCESS:
       return state.merge({
         userEmail: action.payload.userEmail,
+        userName: action.payload.userName,
         token: action.payload.token,
         loading: false,
         isLogged: true

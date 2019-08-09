@@ -1,0 +1,34 @@
+@import '../../../scss/colors';
+
+.profile-card {
+  width: 300px;
+  height: 500px;
+  border: 2px solid $dust-gray;
+  border-radius: 5px;
+  margin: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  .profile-picture {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    align-self: center;
+    border: 3px solid $dust-gray;
+    padding: 5px;
+  }
+  .user-name {
+    margin-top: 25px;
+    color: $dust-gray;
+    font-weight: bold;
+    text-align: center;
+  }
+  .icons {
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+  }
+  .go-back {
+    margin-top: 100px;
+  }
+}

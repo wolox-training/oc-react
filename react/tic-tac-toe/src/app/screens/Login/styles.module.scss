@@ -1,11 +1,13 @@
 @import '../../../scss/colors';
 
-.loginForm {
-  border: 1px solid $black;
+.login-form {
+  border: 2px solid $dust-gray;
+  border-radius: 5px;
   width: 300px;
   height: 300px;
   padding: 20px;
   text-align: center;
+  margin: auto;
 }
 
 .fields {
@@ -14,16 +16,15 @@
   width: 100%;
 }
 
-.buttonSubmit {
+.button-submit {
   font-size: 16px;
   padding: 14px 40px;
-  border: 1px solid $green;
-  border-radius: 3px;
-  background-color: $light-green;
+  border-radius: 5px;
+  background-color: $orange2;
   margin-top: 30px;
 }
 
-.buttonSubmit:hover{
-  background-color: $green;
+.button-submit:hover{
+  background-color: $orange;
   color: $white;
 }
