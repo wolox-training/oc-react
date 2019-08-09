@@ -8,14 +8,17 @@
   justify-content: space-around;
   align-items: center;
   background-color: $old-pink;
+
   .title {
     color:$white;
     font-size: 35px;
   }
+
   .user {
     color: $white;
     font-weight: bold;
   }
+
   .icons {
     width: 25px;
     height: 25px;
@@ -23,12 +26,13 @@
   }
 }
 
-.button-logOut {
+.button-log-out {
   font-size: 15px;
   padding: 14px 40px;
   color: $black;
   display: flex;
   align-items: center;
+
   img {
     margin-left: 5px;
   }
