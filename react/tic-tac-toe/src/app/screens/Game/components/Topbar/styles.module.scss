@@ -33,6 +33,10 @@
   display: flex;
   align-items: center;
 
+  span{
+    color: $black;
+  }
+
   img {
     margin-left: 5px;
   }

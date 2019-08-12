@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes, { arrayOf, string } from 'prop-types';
 
@@ -48,19 +48,17 @@ class Game extends Component {
     const status = winner ? `Winner: ${winner}` : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
     return (
-      <Fragment>
-        <div className={styles.game}>
-          <div className={styles.gameinfo}>
-            <Board status={status} squares={current} onClick={this.handleClick} />
-          </div>
-          <div className={styles.gameinfo}>
-            <ol>{moves}</ol>
-          </div>
-          <div className={styles.gameInfo}>
-            <MatchesList />
-          </div>
+      <div className={styles.game}>
+        <div className={styles.gameinfo}>
+          <Board status={status} squares={current} onClick={this.handleClick} />
         </div>
-      </Fragment>
+        <div className={styles.gameinfo}>
+          <ol>{moves}</ol>
+        </div>
+        <div className={styles.gameInfo}>
+          <MatchesList />
+        </div>
+      </div>
     );
   }
 }

@@ -24,7 +24,7 @@ function App() {
             <Switch>
               <AuthRoute path={GAME} component={Game} isPrivate />
               <AuthRoute path={LOGIN} component={LoginForm} />
-              <AuthRoute path={PROFILE} component={Profile} />
+              <AuthRoute path={PROFILE} component={Profile} isPrivate />
             </Switch>
           </Fragment>
         </ConnectedRouter>
