@@ -49,7 +49,7 @@ class Game extends Component {
 
     return (
       <div className={styles.game}>
-        <div className={styles.gameboard}>
+        <div className={styles.gameinfo}>
           <Board status={status} squares={current} onClick={this.handleClick} />
         </div>
         <div className={styles.gameinfo}>

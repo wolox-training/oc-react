@@ -1,0 +1,30 @@
+@import '../../../../../scss/colors';
+
+.nav-bar {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient($blue, $black);
+  .title {
+    color: $black;
+    font-size: 35px;
+  }
+  .user {
+    color: $white;
+    font-weight: bold;
+  }
+  .icons {
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+  }
+}
+
+.button-log-out {
+  font-size: 15px;
+  padding: 14px 40px;
+  color: $black;
+}
