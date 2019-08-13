@@ -18,7 +18,7 @@ class Profile extends Component {
     return (
       <div className={styles.profileCard}>
         <img src={profilePic} alt="profilePic" className={styles.profilePicture} />
-        <span className={styles.userName}> User: {this.props.userName} </span>
+        <span className={styles.userName}> {`User: ${this.props.userName}`} </span>
         <button className={styles.goBack} type="button" onClick={this.handleGame}>
           <img className={styles.icons} src={goBack} alt="goBackHand" />
         </button>
