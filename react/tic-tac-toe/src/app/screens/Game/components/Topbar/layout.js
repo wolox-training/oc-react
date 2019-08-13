@@ -13,7 +13,8 @@ function TopBar({ handleProfile, handleLogout, userEmail, isLogged }) {
       {isLogged && (
         <Fragment>
           <button className={styles.user} type="button" onClick={handleProfile}>
-            <img className={styles.icons} src={userIcon} alt="userIcon" /> {`${userEmail} is logged`}
+            <img className={styles.icons} src={userIcon} alt="userIcon" />
+            <span>{`${userEmail} is logged`}</span>
           </button>
           <button className={styles.buttonLogOut} type="button" onClick={handleLogout}>
             <span>Log Out</span>
