@@ -42,9 +42,12 @@ const actionsAuth = {
     localStorage.removeItem(TOKEN);
   },
   authInit: () => dispatch => {
-    dispatch({
-      type: actions.AUTH_INIT
-    });
+    const token = localStorage.getItem(TOKEN);
+    if (token) {
+      dispatch({
+        type: actions.AUTH_INIT
+      });
+    }
   }
 };
 
