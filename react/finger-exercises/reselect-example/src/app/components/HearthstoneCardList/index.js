@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createSelector } from 'reselect';
+import { cardSelector } from './selector';
 
 import hearthstoneActions from '../../../redux/hearthstone/actions';
 
@@ -25,13 +25,8 @@ class HearthStoneCardList extends Component {
   }
 }
 
-// const cardSelector = createSelector(
-//   store => store.hearthstone.cards,
-//   cards => cards.filter(card => card.mana < 4)
-// );
-
 const mapStateToProps = store => ({
-  cardList: store.hearthstone.cards,
+  cardList: cardSelector(store),
   loading: store.hearthstone.cardsLoading
 });
 
