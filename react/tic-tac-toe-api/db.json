@@ -48,14 +48,16 @@
       "id": 1,
       "email": "admin@wolox.com.ar",
       "password": "12345678",
-      "token": "1VvVIRQfAS"
+      "token": "1VvVIRQfAS",
+      "userName": "WOLOX ADMIN"
     },
     {
       "email": "oriana.colmenares@wolox.com.ar",
       "password": "12345678",
       "createdAt": "2019-07-29T18:25:15.984Z",
       "id": 2,
-      "token": "1VvVIRQfAS"
+      "token": "1VvVIRQfAS",
+      "userName": "ORI COLMENARES"
     }
   ]
 }

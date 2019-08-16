@@ -23,7 +23,7 @@ server.use((req, res, next) => {
   if (req.method == 'POST' && req.path == '/login') {
     const user = router.db.get('users').find({ email: req.body.email, password: req.body.password }).value();
     if (user) {
-      res.status(200).send({ token: user.token });
+      res.status(200).send({ token: user.token, userName: user.userName });
     } else {
       res.sendStatus(401);
     }

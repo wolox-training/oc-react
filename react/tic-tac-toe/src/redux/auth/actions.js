@@ -24,7 +24,7 @@ const actionsAuth = {
       dispatch(push(GAME));
       dispatch({
         type: actions.GET_LOGIN_SUCCESS,
-        payload: { token: response.data, userEmail: values.email }
+        payload: { token: response.data.token, userEmail: values.email, userName: response.data.userName }
       });
     } else {
       dispatch({
@@ -42,9 +42,12 @@ const actionsAuth = {
     localStorage.removeItem(TOKEN);
   },
   authInit: () => dispatch => {
-    dispatch({
-      type: actions.AUTH_INIT
-    });
+    const token = localStorage.getItem(TOKEN);
+    if (token) {
+      dispatch({
+        type: actions.AUTH_INIT
+      });
+    }
   }
 };
 
