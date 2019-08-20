@@ -4,7 +4,7 @@ import { actions } from './actions';
 
 const initialState = {
   matches: [],
-  loading: true
+  loading: false
 };
 
 function reducer(state = Immutable(initialState), action) {

@@ -46,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withLoading(MatchesList));
+)(withLoading(props => props.loading && !props.matches.length)(MatchesList));
