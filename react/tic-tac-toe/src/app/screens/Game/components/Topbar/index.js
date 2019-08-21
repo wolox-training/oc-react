@@ -21,13 +21,12 @@ class TopBarContainer extends Component {
 
   render() {
     const { userEmail, isLogged } = this.props;
-    const { handleLogout, handleProfile } = this;
     return (
       <TopBar
-        handleLogout={handleLogout}
+        handleLogout={this.handleLogout}
         userEmail={userEmail}
         isLogged={isLogged}
-        handleProfile={handleProfile}
+        handleProfile={this.handleProfile}
       />
     );
   }
