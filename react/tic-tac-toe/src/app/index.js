@@ -1,33 +1,17 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
-import { Switch } from 'react-router-dom';
-import { ConnectedRouter } from 'connected-react-router';
 
-import { GAME, LOGIN, PROFILE } from '../constants/routes';
-import store, { history } from '../redux/store';
+import store from '../redux/store';
 
-import LoginForm from './screens/Login';
-import Game from './screens/Game';
-import TopBar from './screens/Game/components/Topbar';
-import Profile from './screens/Profile';
 import '../scss/application.scss';
-import AuthRoute from './components/AuthRoute';
+import Routes from './components/Routes';
 
 function App() {
   return (
     <AppContainer>
       <Provider store={store}>
-        <ConnectedRouter history={history}>
-          <Fragment>
-            <TopBar />
-            <Switch>
-              <AuthRoute path={GAME} component={Game} isPrivate />
-              <AuthRoute path={LOGIN} component={LoginForm} />
-              <AuthRoute path={PROFILE} component={Profile} isPrivate />
-            </Switch>
-          </Fragment>
-        </ConnectedRouter>
+        <Routes />
       </Provider>
     </AppContainer>
   );

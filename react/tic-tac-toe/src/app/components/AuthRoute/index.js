@@ -4,19 +4,16 @@ import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { TOKEN } from '../../../constants/autentications';
-import { LOGIN } from '../../../constants/routes';
-import actionsAuth from '../../../redux/auth/actions';
+import { LOGIN, GAME } from '../../../constants/routes';
 
 class AuthRoute extends Component {
-  componentDidMount() {
+  componentDidUpdate() {
     if (this.props.isPrivate) {
-      const token = localStorage.getItem(TOKEN);
-      if (!token) {
+      if (!this.props.isLogged) {
         this.props.redirectLogin();
-        return;
       }
-      this.props.authInit();
+    } else if (this.props.isLogged) {
+      this.props.redirectGame();
     }
   }
 
@@ -26,19 +23,25 @@ class AuthRoute extends Component {
 }
 
 AuthRoute.propTypes = {
-  authInit: PropTypes.func.isRequired,
   component: PropTypes.element.isRequired,
+  isLogged: PropTypes.bool.isRequired,
   isPrivate: PropTypes.bool.isRequired,
   path: PropTypes.string.isRequired,
+  redirectGame: PropTypes.func.isRequired,
   redirectLogin: PropTypes.func.isRequired
 };
 
+const mapStateToProps = state => ({
+  isLogged: state.login.isLogged
+});
+
 const mapDispatchToProps = dispatch => ({
-  redirectLogin: () => dispatch(push(LOGIN)),
-  authInit: () => dispatch(actionsAuth.authInit())
+  redirectGame: () => dispatch(push(GAME)),
+  redirectLogin: () => dispatch(push(LOGIN))
+  // authInit: () => dispatch(actionsAuth.authInit())
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(AuthRoute);

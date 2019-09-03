@@ -12,7 +12,7 @@ function TopBar({ handleProfile, handleLogout, userEmail, isLogged }) {
       <h1 className={styles.title}>Tic-Tac-Toe</h1>
       {isLogged && (
         <Fragment>
-          <button type="button" onClick={handleProfile}>
+          <button className={styles.user} type="button" onClick={handleProfile}>
             <img className={styles.icons} src={userIcon} alt="userIcon" />
             <span className={styles.user}>{`${userEmail} is logged`}</span>
           </button>
