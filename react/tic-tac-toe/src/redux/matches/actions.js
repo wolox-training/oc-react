@@ -1,27 +1,17 @@
+import { createTypes, completeTypes } from 'redux-recompose';
+
 import MatchesService from '../../services/MatchesService';
 
-export const actions = {
-  GET_MATCHES: '@@MATCHES/GET_MATCHES',
-  GET_MATCHES_SUCCESS: '@@MATCHES/GET_MATCHES_SUCCESS',
-  GET_MATCHES_FAILURE: '@@MATCHES/GET_MATCHES_FAILURE'
-};
+export const actions = createTypes(completeTypes(['GET_MATCHES'], []), '@@MATCHES');
+
+export const targets = { matches: 'matches' };
 
 const actionsCreators = {
-  getMatches: () => async dispatch => {
-    dispatch({ type: actions.GET_MATCHES });
-    const response = await MatchesService.getMatches();
-    if (response.ok) {
-      dispatch({
-        type: actions.GET_MATCHES_SUCCESS,
-        payload: { matches: response.data }
-      });
-    } else {
-      dispatch({
-        type: actions.GET_MATCHES_FAILURE,
-        payload: response.problem
-      });
-    }
-  }
+  getMatches: () => ({
+    type: actions.GET_MATCHES,
+    service: MatchesService.getMatches,
+    target: targets.matches
+  })
 };
 
 export default actionsCreators;

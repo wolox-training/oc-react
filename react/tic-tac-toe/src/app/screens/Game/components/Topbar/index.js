@@ -10,11 +10,13 @@ import TopBar from './layout';
 
 class TopBarContainer extends Component {
   handleLogout = () => {
-    this.props.getLogout();
+    const { getLogout } = this.props;
+    getLogout();
   };
 
   handleProfile = () => {
-    this.props.getProfile();
+    const { getProfile } = this.props;
+    getProfile();
   };
 
   render() {

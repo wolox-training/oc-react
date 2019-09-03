@@ -41,7 +41,7 @@ MatchesList.propTypes = {
 
 const mapStateToProps = state => ({
   matches: state.matches.matches,
-  loading: state.matches.loading
+  loading: state.matches.matchesLoading
 });
 
 const mapDispatchToProps = dispatch => ({

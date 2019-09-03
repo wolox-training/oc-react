@@ -11,7 +11,8 @@ import styles from './styles.module.scss';
 
 class Profile extends Component {
   handleGame = () => {
-    this.props.goBackToGame();
+    const { goBackToGame } = this.props;
+    goBackToGame();
   };
 
   render() {
